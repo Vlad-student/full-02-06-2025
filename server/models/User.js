@@ -16,6 +16,11 @@ const userShema = new mongoose.Schema(
 );
 
 // delete password
+userShema.methods.toJSON = function () {
+  const obj = this.toObject();
+  delete obj.password;
+  return obj;
+};
 
 const User = mongoose.model("User", userShema);
 

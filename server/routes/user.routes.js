@@ -1,10 +1,13 @@
 const express = require("express");
-const { registerShema } = require("../validators/user.validator");
-const { registerUser } = require("../controllers/user.controller");
-const { validate } = require("../middlewares/User");
+const { registerShema, loginShema } = require("../validators/user.validator");
+const { registerUser, loginUser, getAccount } = require("../controllers/user.controller");
+const { validate } = require("../middlewares/validate.mv");
+const { auth } = require("../middlewares/auth.mv");
 
-const route = express.Router();
+const router = express.Router();
 
-router.post("/register", validate(registerShema) ,registerUser);
+router.post("/register", validate(registerShema), registerUser);
+router.post("/login", validate(loginShema), loginUser);
+router.get("/account", auth, getAccount);
 
-module.exports = route;
+module.exports = router;

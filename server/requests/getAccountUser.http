@@ -1,0 +1,2 @@
+GET localhost://3000/users/account  HTTP/1.1
+Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDMwMGEzMzcxMjVhZDQ4ZWU3ZDg4NCIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc0OTIyMTYyNSwiZXhwIjoxNzQ5ODI2NDI1fQ.UtPZkwJVP8ngKKYYVadu79Ufo2IoH7fhjofVDnF4N0k"
