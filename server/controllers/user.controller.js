@@ -45,7 +45,41 @@ module.exports.loginUser = async (req, res, next) => {
   }
 };
 
-module.exports.getAccount = async () => {
+module.exports.getAccount = async (req, res, next) => {
   try {
-  } catch (error) {}
+    res.status(200).send({ data: req.user });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports.getAllUsers = async (req, res, next) => {
+  try {
+    const users = await User.find();
+    res.status(200).send({ data: users });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports.updateUser = async (req, res, next) => {
+  try {
+    const updateData = req.body;
+    if (updateData.password) {
+      updateData.password = await bcrypt.hash(updateData.password, 10);
+    }
+    const user = await User.findByIdAndUpdate(req.params.idUser, updateData, {
+      new: true,
+    });
+    if (!user) {
+      throw createError(404, "User not found");
+    }
+    res.status(200).send({ data: user });
+   
+  } catch (error) {
+     if (error.code === 11000) {
+      return next(createHttpError(409, "Already exists"));
+    }
+    next(error);
+  }
 };

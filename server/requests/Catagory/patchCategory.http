@@ -1,0 +1,7 @@
+PATCH http://localhost:3000/categories/6849995317aa7f03a1d35bea HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDk1ZTJjODViM2Y1ZWNiMzkyOThiZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0OTYzODc0NCwiZXhwIjoxNzUwMjQzNTQ0fQ.sgDme33ypwS7yFkMODSbHmABuaT1saLASDnPsfugWi8
+
+{
+    "name":"test2"
+}
