@@ -27,7 +27,9 @@ module.exports.getAllCategories = async (req, res, next) => {
 
 module.exports.getCategoryById = async (req, res, next) => {
   try {
-    const category = await Category.findById(req.params.idCategory);
+    const category = await Category.findById(req.params.idCategory).populate(
+      "products"
+    );
     if (!category) {
       return res.status(400).send("Categorynot found");
     }
