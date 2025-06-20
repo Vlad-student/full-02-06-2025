@@ -3,9 +3,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDk1ZTJjODViM2Y1ZWNiMzkyOThiZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MDI0NTEyMywiZXhwIjoxNzUwODQ5OTIzfQ.Bd8AnCJtJNYzjIi3AEqxhVN450jBkEF9vd5gcpT1R3g
 
 {
-    "title":"Test01",
+    "title":"Test07",
     "description":"test01",
     "price":"20.20",
     "stockQty":"100",
-    "category":"6849a12b0a55be997bc16de0"
+    "category":"685574a341c10847aceaf66e"
 }

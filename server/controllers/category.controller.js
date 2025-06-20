@@ -1,5 +1,6 @@
 const createError = require("http-errors");
 const Category = require("../models/Category");
+const Product = require("../models/Product");
 
 module.exports.createCategory = async (req, res, next) => {
   try {
@@ -60,6 +61,10 @@ module.exports.updateCategory = async (req, res, next) => {
 module.exports.deleteCategoryById = async (req, res, next) => {
   try {
     const { idCategory } = req.params;
+    const products = await Product.find({ category: idCategory });
+    if (products.length) {
+      throw createError(409, "Category had products");
+    }
     const category = await Category.findByIdAndDelete(idCategory);
     if (!category) {
       return createError(404, "category not found");

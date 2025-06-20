@@ -12,8 +12,10 @@ const {
   getAllProducts,
   getProductById,
   updateProduct,
+  deleteProduct,
 } = require("../controllers/product.controller");
 const { paginate } = require("../middlewares/pagination.mv");
+const { filterProducts } = require("../middlewares/filter.mv");
 
 const router = express.Router();
 
@@ -26,7 +28,7 @@ router.post(
   createProduct
 );
 
-router.get("/", paginate, getAllProducts);
+router.get("/", paginate, filterProducts, getAllProducts);
 router.get("/:idProduct", getProductById);
 router.patch(
   "/:idProduct",
@@ -37,4 +39,5 @@ router.patch(
   updateProduct
 );
 
+router.delete("/:idProduct", auth, isAdmin, deleteProduct);
 module.exports = router;

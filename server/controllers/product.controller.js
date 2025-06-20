@@ -51,7 +51,6 @@ module.exports.getProductById = async (req, res, next) => {
   }
 };
 
-
 // реалізувати коректне видалення категорії
 module.exports.updateProduct = async (req, res, next) => {
   try {
@@ -79,5 +78,25 @@ module.exports.updateProduct = async (req, res, next) => {
       return next(
         createError(409, "Product in selected category already exists")
       );
+  }
+};
+
+module.exports.deleteProduct = async (req, res, next) => {
+  try {
+    const { idProduct } = req.params;
+    const product = await Product.findByIdAndDelete(idProduct);
+    if (!product) {
+      throw createError(404, "Product not found");
+    }
+    if (product.images && product.images.length > 0) {
+      await Promise.all(
+        product.images.map((img) =>
+          fs.unlink(path.join(__dirname, "..", UPLOAD_FOLDER, img))
+        )
+      );
+    }
+    res.status(200).send({ data: product });
+  } catch (error) {
+    next(error);
   }
 };

@@ -8,7 +8,7 @@ const CONSTANTS = {
   MAX_IMAGES_LIMIT: 3,
   UPLOAD_FOLDER: "uploads/",
   UPLOAD_IMG_TYPES: [".jpg", ".jpeg", ".png", ".webp"],
-  AMOUNT: 3,
+  AMOUNT: 50,
 };
 
 module.exports = CONSTANTS;

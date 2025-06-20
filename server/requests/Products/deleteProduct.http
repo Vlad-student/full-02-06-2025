@@ -1,2 +1,2 @@
-DELETE http://localhost:3000/categories/685574a341c10847aceaf66e    HTTP/1.1
+DELETE http://localhost:3000/products/68556f438f50f1347a381851 HTTP/1.1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDk1ZTJjODViM2Y1ZWNiMzkyOThiZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MDI0NTEyMywiZXhwIjoxNzUwODQ5OTIzfQ.Bd8AnCJtJNYzjIi3AEqxhVN450jBkEF9vd5gcpT1R3g
