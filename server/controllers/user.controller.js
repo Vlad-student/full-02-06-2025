@@ -37,7 +37,7 @@ module.exports.loginUser = async (req, res, next) => {
     const token = jwt.sign(
       { id: user._id, role: user.role },
       CONSTANTS.JWT_SECRET,
-      { expiresIn: "7d" }
+      { expiresIn: CONSTANTS.JWT_EXPIRES }
     );
     res.status(200).send({ data: { user, token } });
   } catch (error) {
@@ -75,9 +75,8 @@ module.exports.updateUser = async (req, res, next) => {
       throw createError(404, "User not found");
     }
     res.status(200).send({ data: user });
-   
   } catch (error) {
-     if (error.code === 11000) {
+    if (error.code === 11000) {
       return next(createHttpError(409, "Already exists"));
     }
     next(error);

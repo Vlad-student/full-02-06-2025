@@ -33,3 +33,19 @@ module.exports.filterProducts = async (req, res, next) => {
     next(error);
   }
 };
+
+module.exports.filterOrders = async () => {
+  try {
+    const { user, status, method } = req.query;
+    req.filter = {};
+    if (user) {
+      req.filter.user = user;
+    }
+    if (method) {
+      req.filter.method = shippingMethod;
+    }
+    next();
+  } catch (error) {
+    next(error);
+  }
+};

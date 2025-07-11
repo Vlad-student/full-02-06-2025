@@ -27,7 +27,7 @@ module.exports.isAdmin = async (req, res, next) => {
   if (req.user?.role === "admin") {
    return next();
   }
-  next(createError(403, "Onlu admin"));
+  next(createError(403, "Onli admin"));
 };
 
 module.exports.isOwner = async (req, res, next) => {
