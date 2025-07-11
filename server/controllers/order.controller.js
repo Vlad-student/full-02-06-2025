@@ -65,3 +65,51 @@ module.exports.getAllOrders = async (req, res, next) => {
     next(error);
   }
 };
+
+module.exports.getAccountOrders = async (req, res, next) => {
+  try {
+    const { limit, skip } = req.pagination;
+    const orders = await Order.find({ user: req.user._id })
+      .populate("products.productId", "title")
+      .skip(skip)
+      .limit(limit);
+
+    res.status(200).send({ data: orders });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports.getOrderById = async (req, res, next) => {
+  try {
+    const order = await Order.findById(req.params.orderId)
+      .populate("user", "email")
+      .populate("products.productId", "title");
+    if (!order) {
+      throw createError(404, "Order not found");
+    }
+    if (req.user.role !== "admin") {
+      if (req.user._id.toString() !== order.user._id.toString()) {
+        throw createError(403, "Permision denided");
+      }
+    }
+    res.status(200).send({ data: order });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports.updateOrderStatus = async (req, res, next) => {
+  try {
+    const { status } = req.body;
+    const orderStatus = await Order.findById(req.params.orderId);
+    if (!orderStatus) {
+      throw createError(404, "Not found");
+    }
+    orderStatus.status = status;
+    await orderStatus.save();
+    res.status(200).send({ data: orderStatus });
+  } catch (error) {
+    next(error);
+  }
+};

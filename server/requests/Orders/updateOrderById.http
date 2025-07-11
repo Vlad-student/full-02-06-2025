@@ -1,0 +1,7 @@
+PATCH http://localhost:3000/orders/686e83465a01e6a4f436b516 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NmJhMmYxM2VjOGYxZDFlZTE5MGM5NyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTg4NDU0OSwiZXhwIjoxNzUyNDg5MzQ5fQ.lbGNZ-k-PUDZAsKO4hIc6jZhkCbgI2XNFzvD-E0KIBo
+
+{
+    "status" : "confirmed"
+}
