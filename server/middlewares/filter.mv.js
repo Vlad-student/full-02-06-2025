@@ -34,7 +34,7 @@ module.exports.filterProducts = async (req, res, next) => {
   }
 };
 
-module.exports.filterOrders = async () => {
+module.exports.filterOrders = async (req, res, next) => {
   try {
     const { user, status, method } = req.query;
     req.filter = {};
