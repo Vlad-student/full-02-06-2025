@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.logo > img {
+  height: 40px;
+}
+
+.search-bar {
+  display: flex;
+  > button {
+    border: none;
+    color: white;
+    background-color: rgb(133, 221, 2);
+    cursor: pointer;
+  }
+}
+
+.main-menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 30px;
+}
