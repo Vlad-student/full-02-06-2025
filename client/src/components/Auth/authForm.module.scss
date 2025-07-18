@@ -1,0 +1,20 @@
+@use "/src/common/styles/colors" as *;
+
+.btn-submit {
+  background-color: $primary;
+  border-radius : 10px;
+  border: none;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    box-sizing: border-box;
+    margin: 50px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 10px;
+}

@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, Tuple } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import { getAllCategories } from "../api";
 import { pendingCase, rejectedCase } from "./functions";
 

@@ -2,8 +2,8 @@ POST http://localhost:3000/users/register  HTTP/1.1
 Content-Type: application/json
 
 {
-    "login": "admin101",
-    "email": "admin101@gmail.com",
-    "password": "admin101@gmail.com",
+    "login": "admin12",
+    "email": "admin12@gmail.com",
+    "password": "admin12@gmail.com",
     "role":"admin"
     }
