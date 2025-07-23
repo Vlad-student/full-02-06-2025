@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProductsThunk } from "../store/productsSlice";
-import ProductsList from "../components/ProductsList";
+import ProductsList from "./../components/ProductsList/ProductsList";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -11,8 +11,9 @@ const HomePage = () => {
   }, [dispatch]);
   return (
     <div>
-      <h1>HomePage</h1>
-      <ProductsList products={products}/>
+      {error && <p>{error}</p>}
+      {isLoading && <p>Loading...</p>}
+      <ProductsList products={products} />
     </div>
   );
 };

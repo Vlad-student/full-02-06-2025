@@ -1,14 +1,17 @@
 import React from "react";
-import CONSTANTS from "../../constants";
+import CONSTANTS from "../../../constants";
+import styles from "../stylesComponents/Products.module.scss";
+import { mdiFlagTriangle } from "@mdi/js";
+import Icon from "@mdi/react";
 
 const ProductsItem = (props) => {
   const {
     product: { title, price, stockQty, isSale, images, category },
   } = props;
   return (
-    <article>
-      {isSale && <p>sale</p>}
-      <div>
+    <article className={styles["product"]}>
+      {isSale && <Icon className={styles["icon"]} path={mdiFlagTriangle} />}
+      <div className={styles["pic"]}>
         <img
           src={`${CONSTANTS.BASE_URL}/${CONSTANTS.UPLOAD_FOLDER}/${images[0]}`}
           alt={title}

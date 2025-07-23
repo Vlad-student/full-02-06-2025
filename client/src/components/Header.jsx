@@ -28,6 +28,9 @@ const Header = () => {
         {user ? (
           <>
             <span>Hi, {user?.login}</span>
+            {user?.role === "admin" && (
+              <Link to="/admin-panel">Admin Panel</Link>
+            )}
             <button onClick={logout}>Logout</button>
           </>
         ) : (
