@@ -9,6 +9,7 @@ import RegisterForm from "./components/Auth/RegisterForm";
 import LoginForm from "./components/Auth/LoginForm";
 import AdminPage from "./pages/AdminPage";
 import AdminCategories from "./components/Admin/AdminCategories";
+import AdminProducts from "./components/Admin/AdminProducts";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,13 +28,32 @@ function App() {
 
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/login" element={<LoginForm />} />
+
           <Route
             path="/admin-panel"
             element={
               user?.role === "admin" ? <AdminPage /> : <Navigate to="/" />
             }
-          />
-          <Route path="/admin-panel/categories" element={<AdminCategories />}></Route>
+          >
+            <Route
+              path="/admin-panel/categories"
+              element={
+                user?.role === "admin" ? (
+                  <AdminCategories />
+                ) : (
+                  <Navigate to="/" />
+                )
+              }
+            />
+
+            <Route
+              path="/admin-panel/products"
+              element={
+                user?.role === "admin" ? <AdminProducts /> : <Navigate to="/" />
+              }
+            />
+          </Route>
+
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>

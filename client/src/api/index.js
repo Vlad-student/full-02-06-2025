@@ -22,5 +22,14 @@ export const getAccount = () => apiClient.get("users/account");
 // categories
 export const getAllCategories = () => apiClient.get("/categories");
 
+export const createCategory = (values) => apiClient.post("/categories", values);
+export const updateCategory = (id, values) =>
+  apiClient.patch(`/categories/${id}`, values);
+export const deleteCategory = (id) => apiClient.delete(`/categories/${id}`);
 //products
 export const getAllProducts = () => apiClient.get("/products");
+
+export const createProduct = (values) => apiClient.post("/products", values);
+export const updateProduct = (id, values) =>
+  apiClient.patch(`/products/${id}`, values);
+export const deleteProduct = (id) => apiClient.delete(`/products/${id}`);

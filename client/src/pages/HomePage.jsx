@@ -11,6 +11,7 @@ const HomePage = () => {
   }, [dispatch]);
   return (
     <div>
+      <h1>Shop</h1>
       {error && <p>{error}</p>}
       {isLoading && <p>Loading...</p>}
       <ProductsList products={products} />

@@ -27,11 +27,13 @@ const Header = () => {
       <div className={styles["register-form"]}>
         {user ? (
           <>
-            <span>Hi, {user?.login}</span>
-            {user?.role === "admin" && (
-              <Link to="/admin-panel">Admin Panel</Link>
-            )}
-            <button onClick={logout}>Logout</button>
+            <div className={styles["panel"]}>
+              <span>Hi, {user?.login}</span>
+              {user?.role === "admin" && (
+                <Link to="/admin-panel">Admin Panel</Link>
+              )}
+              <button onClick={logout}>Logout</button>
+            </div>
           </>
         ) : (
           <>
@@ -55,7 +57,6 @@ const Header = () => {
             <NavLink to="/">Home</NavLink>
           </li>
           {isLoading && <p>Loading</p>}
-          {error && <p>{error}</p>}
           {categories?.map(showCategory)}
         </ul>
       </nav>

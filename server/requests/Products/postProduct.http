@@ -1,9 +1,9 @@
 POST http://localhost:3000/products  HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NmJhMmYxM2VjOGYxZDFlZTE5MGM5NyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MTg4NDU0OSwiZXhwIjoxNzUyNDg5MzQ5fQ.lbGNZ-k-PUDZAsKO4hIc6jZhkCbgI2XNFzvD-E0KIBo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ODc2ZjMyZWM4NDM1ODk2Y2YzY2M4MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1MzcwNjMwMCwiZXhwIjoxNzU0MzExMTAwfQ.CvP3zWGV6_mLcvorAv_cgGtsJIns2XA-dqpAeXJGQI8
 
 {
-    "title":"Peanut butter",
+    "title":"Orange",
     "description":"Sweet and tasty",
     "price":"2.40",
     "stockQty":"70",

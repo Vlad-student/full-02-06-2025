@@ -1,0 +1,37 @@
+@use "/src/common/styles/colors" as *;
+
+.admin-table {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+}
+
+.create {
+  background-color: $primary;
+  width: 100px;
+  height: 50px;
+}
+
+.category {
+  display: flex;
+  gap: 15px;
+  td {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.form {
+  background-color: rgb(170, 184, 197);
+  border-radius: 10px;
+  padding: 10px;
+  width: 450px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  label {
+    display: flex;
+    flex-direction: column;
+  }
+}
