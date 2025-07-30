@@ -10,7 +10,7 @@ module.exports.createProductSchema = Yup.object({
   description: Yup.string().trim(),
   price: priceSchema.required(),
   stockQty: stockQtyShema,
-  category: Yup.string().trim().min(3).max(255).required(),
+  category: Yup.string().required(),
   isSale: Yup.boolean(),
 });
 
@@ -19,6 +19,6 @@ module.exports.updateProductSchema = Yup.object({
   description: Yup.string().trim(),
   price: priceSchema,
   stockQty: stockQtyShema,
-  category: Yup.string().trim().min(3).max(255),
+  category: Yup.string(),
   isSale: Yup.boolean(),
 });

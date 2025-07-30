@@ -6,13 +6,17 @@ const { UPLOAD_FOLDER } = require("../constants");
 
 module.exports.createProduct = async (req, res, next) => {
   try {
-    const images = req.files?.map((item) => file.name) || [];
+    const images = req.files?.map((item) => item.filename) || [];
     const product = await Product.create({ ...req.body, images });
+    await product.populate({
+      path: 'category',
+      select: 'name',
+    });
     res.status(201).send({ data: product });
   } catch (error) {
     if (error.code === 11000) {
       return next(
-        createError(409, "Product in selected categoty already exists")
+        createError(409, 'Product in selected category already exists')
       );
     }
     next(error);
@@ -72,6 +76,10 @@ module.exports.updateProduct = async (req, res, next) => {
 
     Object.assign(product, req.body, { images: updatedImages });
     await product.save();
+    await product.populate({
+      path: "category",
+      select: "name",
+    });
     res.status(200).send({ data: product });
   } catch (error) {
     if (error.code === 11000)
