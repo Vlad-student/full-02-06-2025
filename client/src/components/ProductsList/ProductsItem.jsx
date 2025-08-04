@@ -1,13 +1,20 @@
 import React from "react";
 import CONSTANTS from "../../../constants";
 import styles from "../stylesComponents/Products.module.scss";
-import { mdiFlagTriangle } from "@mdi/js";
+import { mdiFlagTriangle, mdiCart } from "@mdi/js";
 import Icon from "@mdi/react";
+import { addToCart } from "../../store/cartSlice";
+import { useDispatch } from "react-redux";
 
 const ProductsItem = (props) => {
-  const {
-    product: { title, price, stockQty, isSale, images, category },
-  } = props;
+  const dispatch = useDispatch();
+  const { product } = props;
+  const { title, price, stockQty, isSale, images, category } = product;
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+  };
+
   return (
     <article className={styles["product"]}>
       {isSale && <Icon className={styles["icon"]} path={mdiFlagTriangle} />}
@@ -21,6 +28,7 @@ const ProductsItem = (props) => {
       <p>{price}</p>
       <p>{category?.name}</p>
       <p>{stockQty > 0 ? "Available" : "Not available"}</p>
+      <Icon path={mdiCart} size={1} onClick={handleAddToCart} />
     </article>
   );
 };

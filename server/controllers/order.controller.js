@@ -1,6 +1,32 @@
 const createError = require("http-errors");
 const Product = require("../models/Product");
 const Order = require("../models/Order");
+const CONSTANTS = require("../constants");
+const stripe = require("stripe")(CONSTANTS.STRIPE_SECRET_KEY);
+
+module.exports.createCheckoutSession = async (req, res, next) => {
+  try {
+    const session = await stripe.checkout.session.create({
+      payment_method_types: ["card"],
+      line_items: req.body.products.map((product) => ({
+        price_data: {
+          currency: "uah",
+          product_data: {
+            name: product.title,
+          },
+          unit_amount: Math.round(product.productPrice * 100),
+        },
+        quantity: product.quantity,
+      })),
+      mode: "payment",
+      success_url: `${CONSTANTS.CLIENT_URL}/succes/${req.body.id}`,
+      cance_url: `${CONSTANTS.CLIENT_URL}/cancel/${req.body.id}`,
+    });
+    res.status(200).send({ id: session.id });
+  } catch (error) {
+    next(error);
+  }
+};
 
 module.exports.createOrder = async (req, res, next) => {
   try {

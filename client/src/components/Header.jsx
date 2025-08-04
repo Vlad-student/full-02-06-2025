@@ -46,6 +46,11 @@ const Header = () => {
         <div className={styles.logo}>
           <img src="/Logo.svg" alt="Ecobazar Logo" />
         </div>
+
+        <div>
+          <NavLink to="/cart">Cart</NavLink>
+        </div>
+
         <div className={styles["search-bar"]}>
           <input type="text" placeholder="Search" />
           <button>Search</button>

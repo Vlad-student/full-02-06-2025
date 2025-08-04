@@ -19,6 +19,9 @@ const CONSTANTS = {
     "delivered",
     "canceled",
   ],
+  STRIPE_SECRET_KEY:
+    "sk_test_51RsNQxEwAJ4b9QpfQymFrMAhW0tSud88sQ0G69NZz7iNr7xpOcYwqMi47EntIgLNVPxp4RLuguVy069bEWzJacmy008zl61prl",
+  CLIENT_URL: "http://localhost:5173/",
 };
 
 module.exports = CONSTANTS;

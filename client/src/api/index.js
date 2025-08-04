@@ -1,6 +1,7 @@
 import axious from "axios";
 import CONSTANTS from "../../constants";
 
+
 const apiClient = axious.create({
   baseURL: CONSTANTS.BASE_URL,
 });
@@ -12,6 +13,9 @@ apiClient.interceptors.request.use((config) => {
   }
   return config;
 });
+
+//orders
+export const createOrder = (values) => apiClient.post("/orders", values);
 
 //auth
 export const registerUser = (values) =>
