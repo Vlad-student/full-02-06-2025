@@ -1,7 +1,6 @@
 import axious from "axios";
 import CONSTANTS from "../../constants";
 
-
 const apiClient = axious.create({
   baseURL: CONSTANTS.BASE_URL,
 });
@@ -16,6 +15,8 @@ apiClient.interceptors.request.use((config) => {
 
 //orders
 export const createOrder = (values) => apiClient.post("/orders", values);
+export const createCheckoutSession = (id, products) =>
+  apiClient.post("/orders/create-checkout-session", { id, products });
 
 //auth
 export const registerUser = (values) =>

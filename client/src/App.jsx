@@ -11,6 +11,8 @@ import AdminPage from "./pages/AdminPage";
 import AdminCategories from "./components/Admin/AdminCategories";
 import AdminProducts from "./components/Admin/AdminProducts";
 import CartPage from "./pages/CartPage";
+import SuccesPage from "./pages/SuccesPage";
+import CancelPage from "./pages/CancelPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +33,8 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
 
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/succes/:idOrder" element={<SuccesPage />} />
+          <Route path="/cancel/:idOrder" element={<CancelPage />} />
 
           <Route
             path="/admin-panel"

@@ -6,11 +6,11 @@ const stripe = require("stripe")(CONSTANTS.STRIPE_SECRET_KEY);
 
 module.exports.createCheckoutSession = async (req, res, next) => {
   try {
-    const session = await stripe.checkout.session.create({
+    const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: req.body.products.map((product) => ({
         price_data: {
-          currency: "uah",
+          currency: "usd",
           product_data: {
             name: product.title,
           },
@@ -20,7 +20,7 @@ module.exports.createCheckoutSession = async (req, res, next) => {
       })),
       mode: "payment",
       success_url: `${CONSTANTS.CLIENT_URL}/succes/${req.body.id}`,
-      cance_url: `${CONSTANTS.CLIENT_URL}/cancel/${req.body.id}`,
+      cancel_url: `${CONSTANTS.CLIENT_URL}/cancel/${req.body.id}`,
     });
     res.status(200).send({ id: session.id });
   } catch (error) {

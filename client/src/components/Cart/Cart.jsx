@@ -26,9 +26,7 @@ const Cart = () => {
       </div>
 
       {items?.length > 0 && <p>total price : {total.toFixed(2)}</p>}
-      {items?.length > 0 && <CartDeliveryForm />}
-
-      <CartDeliveryForm />
+      {items?.length > 0 && <CartDeliveryForm items={items} />}
     </section>
   );
 };

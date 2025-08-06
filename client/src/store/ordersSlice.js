@@ -9,7 +9,9 @@ export const createOrderThunk = createAsyncThunk(
       const response = await createOrder(values);
       return response.data.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error?.message);
+      console.log(error);
+      const msg = error.response.data.errors[0];
+      return thunkAPI.rejectWithValue(msg);
     }
   }
 );
