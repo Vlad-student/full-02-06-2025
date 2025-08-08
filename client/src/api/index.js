@@ -18,6 +18,11 @@ export const createOrder = (values) => apiClient.post("/orders", values);
 export const createCheckoutSession = (id, products) =>
   apiClient.post("/orders/create-checkout-session", { id, products });
 
+export const updateOrderStatus = (id, status) =>
+  apiClient.patch(`/orders/${id}`, { status });
+
+export const getOrdersForAdmin = () => apiClient.get("/orders");
+
 //auth
 export const registerUser = (values) =>
   apiClient.post("/users/register", values);

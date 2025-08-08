@@ -4,7 +4,7 @@ const CONSTANTS = {
   SHIPPING_METHOD: ["Free", "NP", "UKP"],
   ORDER_STATUS: [
     "new",
-    "payed",
+    "paid",
     "confirmed",
     "on the way",
     "delivered",

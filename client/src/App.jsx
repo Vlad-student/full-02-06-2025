@@ -10,6 +10,7 @@ import LoginForm from "./components/Auth/LoginForm";
 import AdminPage from "./pages/AdminPage";
 import AdminCategories from "./components/Admin/AdminCategories";
 import AdminProducts from "./components/Admin/AdminProducts";
+import AdminOrders from "./components/Admin/AdminOrders";
 import CartPage from "./pages/CartPage";
 import SuccesPage from "./pages/SuccesPage";
 import CancelPage from "./pages/CancelPage";
@@ -57,6 +58,13 @@ function App() {
               path="/admin-panel/products"
               element={
                 user?.role === "admin" ? <AdminProducts /> : <Navigate to="/" />
+              }
+            />
+
+            <Route
+              path="/admin-panel/orders"
+              element={
+                user?.role === "admin" ? <AdminOrders /> : <Navigate to="/" />
               }
             />
           </Route>

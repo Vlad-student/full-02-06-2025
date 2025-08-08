@@ -13,6 +13,10 @@ const AdminPage = () => {
         <li>
           <Link to="/admin-panel/products"> Products </Link>
         </li>
+
+            <li>
+          <Link to="/admin-panel/orders"> Orders </Link>
+        </li>
       </ul>
 
       <Outlet />
