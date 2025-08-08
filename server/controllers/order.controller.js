@@ -134,6 +134,10 @@ module.exports.updateOrderStatus = async (req, res, next) => {
     }
     orderStatus.status = status;
     await orderStatus.save();
+
+    await orderStatus.populate("user", "email");
+    await orderStatus.populate("products.productId", "title");
+
     res.status(200).send({ data: orderStatus });
   } catch (error) {
     next(error);
